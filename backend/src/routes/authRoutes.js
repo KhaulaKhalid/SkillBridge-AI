@@ -26,8 +26,8 @@ const sendTokenCookie = (res, user) => {
   const token = signToken(user);
   res.cookie("sb_token", token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: true,
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     maxAge: cookieDays * 24 * 60 * 60 * 1000,
     path: "/",
   });
@@ -122,8 +122,8 @@ router.post("/login", async (req, res) => {
 router.post("/logout", (req, res) => {
   res.clearCookie("sb_token", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    secure: true,
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     path: "/",
   });
   res.status(200).json({ message: "Logged out successfully" });
