@@ -40,7 +40,7 @@ app.use("/api/student", profileRoutes);
 app.use("/api/recruiter", require("./routes/jobpostingroutes"));
 app.use("/api/student", require("./routes/careerroutes"));
 app.use("/api/student", require("./routes/jobmatchroutes"));
-app.use('/api/student', require('./routes/jobReadinessRoutes'));
+// app.use('/api/student', require('./routes/jobReadinessRoutes'));
 app.use("/api/student", require("./routes/quizRoutes"));
 app.use("/api/recruiter", require("./routes/recruiterRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
